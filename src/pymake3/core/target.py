@@ -74,7 +74,7 @@ class Target(object):
         os.chdir(cwd)
 
     def __call(self, func, conf):
-        argspec = inspect.getargspec(func)
+        argspec = inspect.getfullargspec(func)
         accepts_kwargs = len(argspec.args) > 1 and argspec.defaults is not None
 
         if accepts_kwargs:
